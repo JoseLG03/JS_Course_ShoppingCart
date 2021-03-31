@@ -24,7 +24,13 @@ function addCourse(e){
     e.preventDefault();
 
     if(e.target.classList.contains("agregar-carrito")){
-        console.log("Agregado");    
+        const selectedCourse = e.target.parentElement.parentElement;
+        
+        readCourse(selectedCourse);
     }
     
+};
+
+function readCourse(e){
+    console.log(e);
 };
