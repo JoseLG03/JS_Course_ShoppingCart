@@ -33,4 +33,13 @@ function addCourse(e){
 
 function readCourse(e){
     console.log(e);
+    const infoCourse ={
+        img: e.querySelector('img').src,
+        name: e.querySelector('h4').textContent,
+        price: e.querySelector('span').textContent,
+        id: e.querySelector('a').getAttribute('data-id'),
+        amount: 1
+    }
+
+    console.log(infoCourse);
 };
