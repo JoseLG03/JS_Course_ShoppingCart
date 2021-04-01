@@ -8,6 +8,8 @@ const coursesList = document.querySelector("#lista-cursos");
 
 const btnAdd = document.querySelector("#agregar-carrito");
 
+let fullCart = [];
+
 //Load listeners
 
 loadEventsListeners();
@@ -31,8 +33,9 @@ function addCourse(e){
     
 };
 
+//funcion read course
 function readCourse(e){
-    console.log(e);
+
     const infoCourse ={
         img: e.querySelector('img').src,
         name: e.querySelector('h4').textContent,
@@ -41,5 +44,22 @@ function readCourse(e){
         amount: 1
     }
 
-    console.log(infoCourse);
+    fullCart = [...fullCart, infoCourse];
+    console.log(fullCart);
+
+    addCartHTML();
 };
+
+//function add to cart
+function addCartHTML(){
+    fullCart.forEach(infoCourse =>{
+        const row = document.createElement('tr');
+        row.innerHTML =`
+            <td>
+                ${infoCourse.name}
+            </td>
+        `;      
+
+        container.appendChild(row);  
+    });
+}
