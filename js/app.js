@@ -52,6 +52,8 @@ function readCourse(e){
 
 //function add to cart
 function addCartHTML(){
+    clearCart();
+
     fullCart.forEach(infoCourse =>{
         const row = document.createElement('tr');
         row.innerHTML =`
@@ -62,4 +64,9 @@ function addCartHTML(){
 
         container.appendChild(row);  
     });
+}
+
+//clean cart
+function clearCart(){
+    container.innerHTML = '';
 }
