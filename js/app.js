@@ -41,7 +41,7 @@ function readCourse(e){
         name: e.querySelector('h4').textContent,
         price: e.querySelector('span').textContent,
         id: e.querySelector('a').getAttribute('data-id'),
-        amount: 1
+        count: 1
     }
 
     fullCart = [...fullCart, infoCourse];
@@ -55,10 +55,23 @@ function addCartHTML(){
     clearCart();
 
     fullCart.forEach(infoCourse =>{
+        const{img,name, price, count,id} = infoCourse
         const row = document.createElement('tr');
         row.innerHTML =`
             <td>
-                ${infoCourse.name}
+                <img src="${img}" width = 100 />
+            </td>
+            <td>
+                ${name}
+            </td>
+            <td>
+                ${price}
+            </td>
+            <td>
+                ${count}
+            </td> 
+            <td>
+                <a href="#" class="borrar-curso" data-id="${id}"> X </a>
             </td>
         `;      
 
@@ -68,5 +81,7 @@ function addCartHTML(){
 
 //clean cart
 function clearCart(){
-    container.innerHTML = '';
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
 }
