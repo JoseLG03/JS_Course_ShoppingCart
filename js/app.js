@@ -46,6 +46,7 @@ function readCourse(e){
 
     let exist = fullCart.some( e => e.id === infoCourse.id);
 
+    //valid if the id course existe, add to number of courses
     if(exist){
         fullCart.forEach( e =>{
             if(e.id === infoCourse.id){
