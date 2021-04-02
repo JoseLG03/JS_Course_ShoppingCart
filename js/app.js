@@ -44,8 +44,17 @@ function readCourse(e){
         count: 1
     }
 
-    fullCart = [...fullCart, infoCourse];
-    console.log(fullCart);
+    let exist = fullCart.some( e => e.id === infoCourse.id);
+
+    if(exist){
+        fullCart.forEach( e =>{
+            if(e.id === infoCourse.id){
+                e.count++;
+            }
+        })
+    }else{
+        fullCart = [...fullCart,infoCourse];
+    }
 
     addCartHTML();
 };
