@@ -19,20 +19,10 @@ function loadEventsListeners(){
     coursesList.addEventListener("click", addCourse);
 
     cart.addEventListener("click", removeCourse);    
-};
+
+    btnCalcel.addEventListener("click", emptyCart);
 
 //functions
-
-function removeCourse(e){
-    if (e.target.classList.contains('borrar-curso')){
-
-        const idDeleteCourse = e.target.getAttribute('data-id')
-        
-        fullCart = fullCart.filter( e => e.id !== idDeleteCourse);
-    }
-
-    readCartHTML();
-}
 
 function addCourse(e){
     
@@ -106,5 +96,23 @@ function readCartHTML(){
 function clearCart(){
     while(container.firstChild){
         container.removeChild(container.firstChild);
+    }
+}
+
+function emptyCart(){
+    fullCart = [];
+    readCartHTML();
+};
+
+//remove course to the cart
+function removeCourse(e){
+    if (e.target.classList.contains('borrar-curso')){
+
+        const idDeleteCourse = e.target.getAttribute('data-id')
+        
+        fullCart = fullCart.filter( e => e.id !== idDeleteCourse);
+    }
+
+    readCartHTML();
     }
 }
