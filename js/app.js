@@ -17,9 +17,17 @@ loadEventsListeners();
 function loadEventsListeners(){
     //function add course when click btn add 
     coursesList.addEventListener("click", addCourse);
+
+    cart.addEventListener("click", removeCourse);    
 };
 
 //functions
+
+function removeCourse(e){
+    if (e.target.classList.contains('borrar-curso')){
+        console.log(e.target.getAttribute('data-id'));
+    }
+}
 
 function addCourse(e){
     
