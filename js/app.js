@@ -25,8 +25,13 @@ function loadEventsListeners(){
 
 function removeCourse(e){
     if (e.target.classList.contains('borrar-curso')){
-        console.log(e.target.getAttribute('data-id'));
+
+        const idDeleteCourse = e.target.getAttribute('data-id')
+        
+        fullCart = fullCart.filter( e => e.id !== idDeleteCourse);
     }
+
+    readCartHTML();
 }
 
 function addCourse(e){
@@ -65,11 +70,11 @@ function readCourse(e){
         fullCart = [...fullCart,infoCourse];
     }
 
-    addCartHTML();
+    readCartHTML();
 };
 
 //function add to cart
-function addCartHTML(){
+function readCartHTML(){
     clearCart();
 
     fullCart.forEach(infoCourse =>{
